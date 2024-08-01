@@ -1,24 +1,27 @@
-package udemy.exer.exem1.model.dto;
+package udemy.exer.exem1.model.entities;
 
-public class PersonDto {
-    Long id;
-    String firstName;
-    String lastName;
-    String address;
-    String gender;
+import jakarta.persistence.*;
 
-    public PersonDto() {
+import java.io.Serializable;
+
+
+@Entity
+@Table(name = "tb_person")
+public class Person implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "tb_person_first_name", nullable = false)
+    private String firstName;
+    @Column(name = "tb_person_last_name", nullable = false)
+    private String lastName;
+    @Column(name = "tb_person_address")
+    private String address;
+    @Column(name = "tb_person_gender")
+    private String gender;
+
+    public Person() {
     }
-
-
-    public PersonDto(Long id, String firstName, String lastName, String address, String gender) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.gender = gender;
-    }
-
     public Long getId() {
         return id;
     }
