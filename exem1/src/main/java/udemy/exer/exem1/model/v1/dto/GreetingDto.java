@@ -1,4 +1,4 @@
-package udemy.exer.exem1.model.dto;
+package udemy.exer.exem1.model.v1.dto;
 
 public class GreetingDto {
     private final long id;

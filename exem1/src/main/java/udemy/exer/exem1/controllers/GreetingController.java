@@ -4,7 +4,7 @@ package udemy.exer.exem1.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import udemy.exer.exem1.model.dto.GreetingDto;
+import udemy.exer.exem1.model.v1.dto.GreetingDto;
 
 import java.util.concurrent.atomic.AtomicLong;
 

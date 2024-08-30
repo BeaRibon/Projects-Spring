@@ -1,13 +1,19 @@
-package udemy.exer.exem1.model.entities;
+package udemy.exer.exem1.model.v2.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.io.Serializable;
+import java.util.Date;
 
 
 @Entity
 @Table(name = "tb_person")
-public class Person implements Serializable {
+public class PersonV2 implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +26,10 @@ public class Person implements Serializable {
     @Column(name = "tb_person_gender")
     private String gender;
 
-    public Person() {
+    @Column(name = "tb_person_birthDay")
+    private Date birthDay;
+
+    public PersonV2() {
     }
     public Long getId() {
         return id;
@@ -60,5 +69,13 @@ public class Person implements Serializable {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public Date getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(Date birthDay) {
+        this.birthDay = birthDay;
     }
 }

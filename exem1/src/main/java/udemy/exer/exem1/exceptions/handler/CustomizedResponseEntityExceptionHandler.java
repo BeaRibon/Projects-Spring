@@ -1,4 +1,4 @@
-package udemy.exer.exem1.model.exceptions.handler;
+package udemy.exer.exem1.exceptions.handler;
 
 
 import org.springframework.http.HttpStatus;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import udemy.exer.exem1.model.exceptions.ExceptionResponse;
-import udemy.exer.exem1.model.exceptions.ResourceNotFoundException;
+import udemy.exer.exem1.exceptions.ExceptionResponse;
+import udemy.exer.exem1.exceptions.ResourceNotFoundException;
 
 import java.util.Date;
 

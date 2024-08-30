@@ -1,17 +1,21 @@
-package udemy.exer.exem1.model.dto;
+package udemy.exer.exem1.model.v1.dto;
 
-public class PersonDto {
+import org.springframework.hateoas.RepresentationModel;
+
+import java.io.Serializable;
+
+public class PersonDtoV1 extends RepresentationModel<PersonDtoV1> implements Serializable {
     Long id;
     String firstName;
     String lastName;
     String address;
     String gender;
 
-    public PersonDto() {
+    public PersonDtoV1() {
     }
 
 
-    public PersonDto(Long id, String firstName, String lastName, String address, String gender) {
+    public PersonDtoV1(Long id, String firstName, String lastName, String address, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

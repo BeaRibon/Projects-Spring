@@ -1,4 +1,4 @@
-package udemy.exer.exem1.model.exceptions;
+package udemy.exer.exem1.exceptions;
 
 
 import org.springframework.http.HttpStatus;
