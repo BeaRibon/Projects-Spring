@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class PersonV1 implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long key;
     @Column(name = "tb_person_first_name", nullable = false)
     private String firstName;
     @Column(name = "tb_person_last_name", nullable = false)
@@ -22,12 +22,12 @@ public class PersonV1 implements Serializable {
 
     public PersonV1() {
     }
-    public Long getId() {
-        return id;
+    public Long getKey() {
+        return key;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setKey(Long key) {
+        this.key = key;
     }
 
     public String getFirstName() {

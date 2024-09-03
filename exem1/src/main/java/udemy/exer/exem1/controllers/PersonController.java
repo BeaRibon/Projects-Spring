@@ -16,34 +16,35 @@ import java.util.List;
 public class PersonController {
     @Autowired
     private PersonService personService;
-    @GetMapping(value = "/{id}",
-    produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML} )
-    public ResponseEntity<PersonDtoV1> findById(@PathVariable(value = "id")Long id) throws Throwable {
-     PersonV1 person = personService.findById(id);
-        return ResponseEntity.ok(DozerMapper.parseObject(person, PersonDtoV1.class));
+    @GetMapping(value = "/{key}",
+    produces = {MediaType.APPLICATION_JSON} )
+    public ResponseEntity<PersonDtoV1> findById(@PathVariable(value = "key")Long key) throws Throwable {
+     PersonDtoV1 person = personService.findById(key);
+        return ResponseEntity.ok(person);
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML})
-    public List<PersonDtoV1> findByAll() throws Exception {
+    @GetMapping(produces = {MediaType.APPLICATION_JSON})
+    public List<PersonDtoV1> findByAll(Long key) throws Exception {
         return personService.findAll();
     }
 
     @PostMapping(produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML})
     public ResponseEntity<PersonDtoV1> create(@RequestBody PersonDtoV1 personDto)throws Exception {
-        PersonV1 person = personService.create(personDto);
-        return ResponseEntity.ok(DozerMapper.parseObject(person, PersonDtoV1.class));
+        PersonDtoV1 person = personService.create(personDto);
+        return ResponseEntity.ok(person);
     }
     @PutMapping(
             consumes = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML},
-            produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML})
+            produces = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML},
+            value = "/{key}")
     public ResponseEntity<PersonDtoV1> update(@RequestBody PersonDtoV1 personDto) throws Throwable {
-        PersonV1 person = personService.update(personDto.getId(), personDto);
-        return ResponseEntity.ok(DozerMapper.parseObject(person, PersonDtoV1.class));
+        PersonDtoV1 person = personService.update(personDto.getKey(), personDto);
+        return ResponseEntity.ok(person);
 
     }
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> delete(@PathVariable(value = "id")Long id) throws Throwable {
-        personService.delete(id);
+    @DeleteMapping(value = "/{key}")
+    public ResponseEntity<?> delete(@PathVariable(value = "key")Long key) throws Throwable {
+        personService.delete(key);
         return ResponseEntity.noContent().build();
     }
 }
